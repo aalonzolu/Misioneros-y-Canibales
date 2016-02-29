@@ -5,7 +5,7 @@
 import pygame
 from pygame.locals import *
 import sys
-from modulocanibal2 import *
+from modulocanibal import *
 # y cualquier otro modulo usado
 
  
