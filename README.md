@@ -1,4 +1,4 @@
-##Misioneros y canibales!
+# Misioneros y canibales!
 
 Recreación del juego de lógica Misioneros y Canibales con python y pygame.
 
