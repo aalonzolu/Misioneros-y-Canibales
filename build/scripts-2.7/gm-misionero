@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # Importacion de los módulos
 import pygame
 from pygame.locals import *
-import sys
+import sys,os
 from modulocanibal import *
 # y cualquier otro modulo usado
 
@@ -42,12 +42,12 @@ def main():
 	pygame.display.set_caption("Misioneros y Canibales")
 	
 	#Cargar assets
-	fondo = pygame.image.load("fondo.jpg").convert()
-	fondop = pygame.image.load("perdedor.png").convert()
-	fondog = pygame.image.load("ganador.png").convert()
-	barco = pygame.image.load("barco.jpg").convert()
-	misionero = pygame.image.load("misionero.png").convert_alpha()
-	canibal = pygame.image.load("canibal.png").convert_alpha()
+	fondo = pygame.image.load(resource("fondo.jpg")).convert()
+	fondop = pygame.image.load(resource("perdedor.png")).convert()
+	fondog = pygame.image.load(resource("ganador.png")).convert()
+	barco = pygame.image.load(resource("barco.jpg")).convert()
+	misionero = pygame.image.load(resource("misionero.png")).convert_alpha()
+	canibal = pygame.image.load(resource("canibal.png")).convert_alpha()
 	screen.blit(fondo, (0, 0))
 	
 	
@@ -78,7 +78,7 @@ def main():
 	while running:
 		#  [self.barco_p,self.canib_iz,self.mision_iz,self.mision_de,self.canib_de,self.barco_c,self.barco_m]
 		datos = CAN.getValues()
-		print(datos)
+		#print(datos)
 		if CAN.perdedor == True:
 			screen.blit(fondop,(0, 0))
 		elif CAN.ganador == True:
@@ -140,6 +140,8 @@ def main():
 						CAN.subirMisionero()
 					elif event.key == K_n:
 						CAN.bajarMisionero()
-
+def resource(filename):
+	fn = os.path.join(os.path.dirname(__file__),'../../misioneros-y-canibales/resource', filename)
+	return fn
 if __name__ == "__main__":
 	main()
